@@ -1,6 +1,6 @@
 // --- CONFIGURACIÓN DE TIEMPOS (En minutos) ---
 const TIMES = {
-    pomodoro: 1,
+    pomodoro: 25,
     shortBreak: 5,
     longBreak: 15
 };
