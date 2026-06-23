@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Focus</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="mode-pomodoro">
+
+    <div class="container">
+        <div class="progress-container">
+            <div class="cycles-badge">
+                Ciclo: <span id="cycle-count">0</span>/4
+            </div>
+            <button id="btn-reset-cycles" title="Reiniciar contador de ciclos" class="btn-icon">↺</button>
+        </div>
+
+        <h2 id="current-status">Tiempo de Enfocar</h2>
+
+        <div class="timer-display">
+            <span id="timer">25:00</span>
+        </div>
+
+        <div class="controls-row">
+            <button id="btn-start" class="btn btn-main">Iniciar</button>
+            <button id="btn-pause" class="btn btn-main btn-pause" disabled>Pausar</button>
+            <button id="btn-reset" class="btn btn-secondary">Reiniciar</button>
+        </div>
+
+        <div class="audio-settings">
+            <label for="audio-uploader" class="audio-label">
+                <span>🎵 Personalizar Alarma</span>
+                <input type="file" id="audio-uploader" accept="audio/*">
+            </label>
+            <div class="filename-container">
+                <span id="audio-filename">Predeterminada (Re:Zero)</span>
+                <button id="btn-reset-audio" title="Volver a la alarma predeterminada" style="display: none; background: none; border: none; cursor: pointer; margin-left: 5px;">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="alarm-sound" src="alarma.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

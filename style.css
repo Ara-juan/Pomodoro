@@ -1,0 +1,196 @@
+:root {
+    /* Colores por defecto (Modo Pomodoro - Terracota Suave) */
+    --bg-color: #1a1212;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --accent-color: #ff5e5b;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+}
+
+/* Cambios de estado dinámicos mediante clases en el body */
+body.mode-short-break {
+    --bg-color: #121a16;
+    --accent-color: #51e5a5;
+}
+
+body.mode-long-break {
+    --bg-color: #12161a;
+    --accent-color: #4ea8de;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.6s ease;
+    overflow: hidden;
+}
+
+.container {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Progreso y Ciclos */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.cycles-badge {
+    background: rgba(255, 255, 255, 0.07);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-icon:hover {
+    color: var(--accent-color);
+}
+
+#current-status {
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* El contador gigante */
+.timer-display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 2.5rem;
+    color: var(--text-main);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Controles Estéticos */
+.controls-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 14px;
+}
+
+.btn-main {
+    background-color: var(--accent-color);
+    color: #111;
+    padding: 14px 32px;
+    flex-grow: 1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-main:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 94, 91, 0.2);
+    filter: brightness(1.1);
+}
+
+.btn-pause {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-pause:hover:not(:disabled) {
+    background-color: var(--accent-color);
+    color: #111;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    padding: 14px 20px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Ajustes de Audio */
+.audio-settings {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.5rem;
+}
+
+.audio-label {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: all 0.3s;
+}
+
+.audio-label:hover {
+    border-color: var(--accent-color);
+    color: var(--text-main);
+}
+
+.audio-label input[type="file"] {
+    display: none;
+}
+
+#audio-filename {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    margin-top: 5px;
+    font-style: italic;
+    opacity: 0.8;
+}
